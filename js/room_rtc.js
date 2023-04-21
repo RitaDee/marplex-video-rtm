@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 const APP_ID = '56b39aefb82d418099d0fc4198cd120b';
 
 let uid = sessionStorage.getItem('uid');
