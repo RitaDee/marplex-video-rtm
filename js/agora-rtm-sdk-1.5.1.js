@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 /*
  @preserve
  AgoraRTM Web SDK 1.5.1 - commit: v1.5.1-0-g5bbbcd72
