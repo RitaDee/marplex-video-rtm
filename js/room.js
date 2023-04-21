@@ -49,7 +49,7 @@ const expandVideoFrame = (e) => {
   }
   // add loop to video frames
   for (let i = 0; videoFrames.length > i; i + 1) {
-    if (videoFrames[i].id != userIdInDisplayFrame) {
+    if (videoFrames[i].id !== userIdInDisplayFrame) {
       videoFrames[i].style.height = '100px';
       videoFrames[i].style.width = '100px';
     }
