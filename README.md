@@ -181,13 +181,13 @@ I would like to thank [agora](https://docs.agora.io/en/) for their resource...
 
 ## ❓ FAQ <a name="faq"></a>
 
-- **[Question_1]**
+- **[Are you sure that you are owner of this work]**
 
-  - [Answer_1]
+  - [Yes, I am]
 
-- **[Question_2]**
+- **[Can you make the work to be responsive]**
 
-  - [Answer_2]
+  - [yes]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
