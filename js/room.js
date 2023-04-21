@@ -1,4 +1,4 @@
-let messagesContainer = document.getElementById('messages');
+const messagesContainer = document.getElementById('messages');
 messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
 const memberContainer = document.getElementById('members__container');
@@ -31,49 +31,46 @@ chatButton.addEventListener('click', () => {
   activeChatContainer = !activeChatContainer;
 });
 
-let displayFrame = document.getElementById('stream__box')
-let videoFrames = document.getElementsByClassName('video__container')
+const displayFrame = document.getElementById('stream__box');
+const videoFrames = document.getElementsByClassName('video__container');
 let userIdInDisplayFrame = null;
 
-//Add expand video frames
-let expandVideoFrame = (e) => {
-
+// Add expand video frames
+const expandVideoFrame = (e) => {
   displayFrame.style.display = 'block';
   displayFrame.appendChild(e.currentTarget);
   userIdInDisplayFrame = e.currentTarget.id;
 
-//Add child to stream container
-   let child = displayFrame.children[0];
-  
-   if(child){
-      document.getElementById('streams__container').appendChild(child)
-   }
-//add loop to video frames
-  for(let i = 0; videoFrames.length > i; i++){
-    if(videoFrames[i].id != userIdInDisplayFrame){
-      videoFrames[i].style.height = '100px'
-      videoFrames[i].style.width = '100px'
+  // Add child to stream container
+  const child = displayFrame.children[0];
+
+  if (child) {
+    document.getElementById('streams__container').appendChild(child);
+  }
+  // add loop to video frames
+  for (let i = 0; videoFrames.length > i; i++) {
+    if (videoFrames[i].id != userIdInDisplayFrame) {
+      videoFrames[i].style.height = '100px';
+      videoFrames[i].style.width = '100px';
     }
   }
-
 };
 
-for(let i = 0; videoFrames.length > i; i++){
-  videoFrames[i].addEventListener('click', expandVideoFrame)
+for (let i = 0; videoFrames.length > i; i++) {
+  videoFrames[i].addEventListener('click', expandVideoFrame);
 }
 
+const hideDisplayFrame = () => {
+  userIdInDisplayFrame = null;
+  displayFrame.style.display = null;
 
-let hideDisplayFrame = () => {
-    userIdInDisplayFrame = null;
-    displayFrame.style.display = null; 
+  const child = displayFrame.children[0];
+  document.getElementById('streams__container').appendChild(child);
 
-    let child = displayFrame.children[0]
-    document.getElementById('streams__container').appendChild(child)
-
-    for(let i = 0; videoFrames.length > i; i++){
-      videoFrames[i].style.height = '300px'
-      videoFrames[i].style.width = '300px'
+  for (let i = 0; videoFrames.length > i; i++) {
+    videoFrames[i].style.height = '300px';
+    videoFrames[i].style.width = '300px';
   }
-}
+};
 
-displayFrame.addEventListener('click', hideDisplayFrame)
+displayFrame.addEventListener('click', hideDisplayFrame);

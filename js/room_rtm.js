@@ -1,135 +1,134 @@
-let handleMemberJoined = async (MemberId) => {
+const handleMemberJoined = async (MemberId) => {
+  addMemberToDom(MemberId);
 
-    addMemberToDom(MemberId);
+  const members = await channel.getMembers();
+  updateMemberTotal(members);
 
-    let members = await channel.getMembers();
-    updateMemberTotal(members);
+  const { name } = await rtmClient.getUserAttributesByKeys(MemberId, ['name']);
 
-    let {name} = await rtmClient.getUserAttributesByKeys(MemberId, ['name']);
-
-    addBotMessageToDom(`Welcome to the room ${name}! 👋`);
+  addBotMessageToDom(`Welcome to the room ${name}! 👋`);
 };
 
 let addMemberToDom = async (MemberId) => {
-    let {name} = await rtmClient.getUserAttributesByKeys(MemberId, ['name']);
+  const { name } = await rtmClient.getUserAttributesByKeys(MemberId, ['name']);
 
-    let membersWrapper = document.getElementById('member__list');
+  const membersWrapper = document.getElementById('member__list');
 
-    let memberItem = `<div class="member__wrapper" id="member__${MemberId}__wrapper">
+  const memberItem = `<div class="member__wrapper" id="member__${MemberId}__wrapper">
                         <span class="green__icon"></span>
                         <p class="member_name">${name}</p>
-                    </div>`
+                    </div>`;
 
-    membersWrapper.insertAdjacentHTML('beforeend', memberItem);
+  membersWrapper.insertAdjacentHTML('beforeend', memberItem);
 };
 
 let updateMemberTotal = async (members) => {
-    let total = document.getElementById('members__count');
-    total.innerText = members.length;
-};
- 
-let handleMemberLeft = async (MemberId) => {
-    removeMemberFromDom(MemberId);
-
-    let members = await channel.getMembers();
-    updateMemberTotal(members);
+  const total = document.getElementById('members__count');
+  total.innerText = members.length;
 };
 
-//Remove member from the DOM
+const handleMemberLeft = async (MemberId) => {
+  removeMemberFromDom(MemberId);
+
+  const members = await channel.getMembers();
+  updateMemberTotal(members);
+};
+
+// Remove member from the DOM
 let removeMemberFromDom = async (MemberId) => {
-    let memberWrapper = document.getElementById(`member__${MemberId}__wrapper`);
+  const memberWrapper = document.getElementById(`member__${MemberId}__wrapper`);
 
-    let name = memberWrapper.getElementsByClassName('member_name')[0].textContent;
+  const name = memberWrapper.getElementsByClassName('member_name')[0].textContent;
 
-    addBotMessageToDom(`${name} has left the room.`);
-        
-    memberWrapper.remove();
-}
+  addBotMessageToDom(`${name} has left the room.`);
+
+  memberWrapper.remove();
+};
 
 // Get members update
-let getMembers = async () => {
-    let members = await channel.getMembers();
-    updateMemberTotal(members)
-    for (let i = 0; members.length > i; i++){
-        addMemberToDom(members[i]);
-    };
+const getMembers = async () => {
+  const members = await channel.getMembers();
+  updateMemberTotal(members);
+  for (let i = 0; members.length > i; i++) {
+    addMemberToDom(members[i]);
+  }
 };
 
 // Handle channel messages
-let handleChannelMessage = async (messageData, MemberId) => {
-    let data = JSON.parse(messageData.text);
+const handleChannelMessage = async (messageData, MemberId) => {
+  const data = JSON.parse(messageData.text);
 
-    if(data.type === 'chat') {
-        addMessageToDom(data.displayName, data.message);
+  if (data.type === 'chat') {
+    addMessageToDom(data.displayName, data.message);
+  }
+
+  if (data.type === 'user_left') {
+    document.getElementById(`user-container-${data.uid}`).remove();
+
+    if (userIdInDisplayFrame === `user-container-${uid}`) {
+      displayFrame.style.display = null;
+
+      for (let i = 0; videoFrames.length > i; i++) {
+        videoFrames[i].style.height = '300px';
+        videoFrames[i].style.width = '300px';
+      }
     }
+  }
+};
 
-    if(data.type === 'user_left') {
-        document.getElementById(`user-container-${data.uid}`).remove()
+const sendMessage = async (e) => {
+  e.preventDefault();
 
-        if(userIdInDisplayFrame === `user-container-${uid}`){
-            displayFrame.style.display = null
-    
-            for(let i = 0; videoFrames.length > i; i++){
-                videoFrames[i].style.height = '300px'
-                videoFrames[i].style.width = '300px'
-            }
-        }
-    }
-}
-
-let sendMessage = async (e) => {
-    e.preventDefault();
-
-    let message = e.target.message.value
-    channel.sendMessage({text:JSON.stringify({'type':'chat', 'message':message, 'displayName':displayName})})
-    addMessageToDom(displayName, message);
-    e.target.reset();
+  const message = e.target.message.value;
+  channel.sendMessage({ text: JSON.stringify({ type: 'chat', message, displayName }) });
+  addMessageToDom(displayName, message);
+  e.target.reset();
 };
 
 let addMessageToDom = (name, message) => {
-    let messagesWrapper = document.getElementById('messages');
+  const messagesWrapper = document.getElementById('messages');
 
-    let newMessage = `<div class="message__wrapper">
+  const newMessage = `<div class="message__wrapper">
                         <div class="message__body">
                             <strong class="message__author">${name}</strong>
                             <p class="message__text">${message}</p>
                         </div>
-                    </div>`
+                    </div>`;
 
-    messagesWrapper.insertAdjacentHTML('beforeend', newMessage);
+  messagesWrapper.insertAdjacentHTML('beforeend', newMessage);
 
-    let lastMessage = document.querySelector('#messages .message__wrapper:last-child');
+  const lastMessage = document.querySelector('#messages .message__wrapper:last-child');
 
-    if(lastMessage){
-        lastMessage.scrollIntoView()
-    };
+  if (lastMessage) {
+    lastMessage.scrollIntoView();
+  }
 };
 
 // Add bot message to dom
 let addBotMessageToDom = (botMessage) => {
-    let messagesWrapper = document.getElementById('messages');
+  const messagesWrapper = document.getElementById('messages');
 
-    let newMessage = `<div class="message__wrapper">
+  const newMessage = `<div class="message__wrapper">
                         <div class="message__body__bot">
                             <strong class="message__author__bot">🤖 MarpleX Bot</strong>
                             <p class="message__text__bot">${botMessage}</p>
                         </div>
-                    </div>`
+                    </div>`;
 
-    messagesWrapper.insertAdjacentHTML('beforeend', newMessage);
+  messagesWrapper.insertAdjacentHTML('beforeend', newMessage);
 
-    let lastMessage = document.querySelector('#messages .message__wrapper:last-child');
+  const lastMessage = document.querySelector('#messages .message__wrapper:last-child');
 
-    if(lastMessage){
-        lastMessage.scrollIntoView();
-    };
+  if (lastMessage) {
+    lastMessage.scrollIntoView();
+  }
 };
 
-let leaveChannel = async () => {
-    await channel.leave()
-    await rtmClient.logout()
+const leaveChannel = async () => {
+  await channel.leave();
+  await rtmClient.logout();
 };
 
 window.addEventListener('beforeunload', leaveChannel);
-let messageForm = document.getElementById('message__form');
+const messageForm = document.getElementById('message__form');
 messageForm.addEventListener('submit', sendMessage);
