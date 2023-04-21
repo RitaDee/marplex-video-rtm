@@ -82,78 +82,48 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- GETTING STARTED -->
+## Project Screenshots
+
+![Home page](./images/E6679136-0001-4D78-90E8-6A90989F231F.jpeg)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 💻 Getting Started <a name="getting-started"></a>
-
-> Describe how a new developer could make use of your project.
 
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
+- In order to run this project you need:
 
+- [git](https://git-scm.com/downloads): A tool for managing source code
+- [Visual Studio Code](https://code.visualstudio.com/): A source code editor
+- [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer): A simple web server utility for Visual Studio Code
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
-```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+- Copy [this link](https://github.com/RitaDee/marplex-video-rtm.git)
+- get to the directory that you want to clone the repository.
+- open the command prompt in this directory.https://github.com/RitaDee/marplex-video-rtm.git`
+- go to the repository folder in your command prompt cd project file
+- write `code .` to open the project in visual studio code.
+- Create an account on agora.io and create an app to generate an APP ID
+- Update APP ID, Temp Token and Channel Name in room_rtc.js
+```javascript
+let APP_ID = "YOU-APP-ID"
 ```
---->
-
-### Install
-
-Install this project with:
-
-<!--
-Example command:
-
-```sh
-  cd my-project
-  gem install
-```
---->
-
 ### Usage
-
 To run the project, execute the following command:
 
-<!--
-Example command:
-
-```sh
-  rails server
-```
---->
+- In visual studio  press `alt + L + O` then the project will open on your browser "http://127.0.0.1:5500/".
 
 ### Run tests
 
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
+- `npx stylelint "/*.{css,scss}"**`: To test css code
+- `npx stylelint "**/*.{css,scss}" --fix`: To fix some CSS errors if found.
+- `npx eslint .` : To test Eslint Report
+- `npx eslint . --fix`: To fix some JS errors if found
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -165,15 +135,9 @@ Example:
 
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@githubhandle](https://github.com/RitaDee)
+- Twitter: [@twitterhandle](https://twitter.com/durdana_dee)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/rita-daniel/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -183,9 +147,9 @@ Example:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **[Privacy and security]**
+- [ ] **[User profile management]**
+- [ ] **[Notifications]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -203,9 +167,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project, Give a ⭐️...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -213,17 +175,11 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+I would like to thank [agora](https://docs.agora.io/en/) for their resource...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FAQ (optional) -->
-
 ## ❓ FAQ <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
 
 - **[Question_1]**
 
@@ -235,12 +191,6 @@ I would like to thank...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LICENSE -->
-
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
