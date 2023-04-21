@@ -78,7 +78,7 @@
 
 > Add a link to your deployed project.
 
-- [Live Demo Link](https://marplexx.netlify.app/)
+- [Live Demo Link](marplexxx.netlify.app)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -111,7 +111,7 @@ Clone this repository to your desired folder:
 - Create an account on agora.io and create an app to generate an APP ID
 - Update APP ID, Temp Token and Channel Name in room_rtc.js
 ```javascript
-let APP_ID = "YOU-APP-ID"
+let APP_ID = "YOUR-APP-ID"
 ```
 ### Usage
 To run the project, execute the following command:
