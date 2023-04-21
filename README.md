@@ -66,8 +66,6 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
 - **[Allow users to make video and audio calls with other users in real-time.]**
 - **[Users are able to chat with each other during video calls ]**
 - **[The web app has a user-friendly interface, with easy-to-use controls and intuitive navigation, to ensure a smooth and enjoyable user experience.]**
@@ -76,9 +74,14 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
 
 - [Live Demo Link](marplexxx.netlify.app)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🎥 WALKTHROUGH <a name="walkthrough"></a>
+
+<a name="loom link">[Loom Recording](https://www.loom.com/share/d732a05d74ad4217912e72631a4ecf63)</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
