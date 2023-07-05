@@ -67,7 +67,9 @@
 ### Key Features <a name="key-features"></a>
 
 - **[Allow users to make video and audio calls with other users in real-time.]**
+  
 - **[Users are able to chat with each other during video calls ]**
+  
 - **[The web app has a user-friendly interface, with easy-to-use controls and intuitive navigation, to ensure a smooth and enjoyable user experience.]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
