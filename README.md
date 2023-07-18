@@ -127,7 +127,7 @@ To run the project, execute the following command:
 
 - `npx stylelint "/*.{css,scss}"**`: To test css code
 - `npx stylelint "**/*.{css,scss}" --fix`: To fix some CSS errors if found.
-- `npx eslint .` : To test Eslint Report
+- `npx eslint .`: To test Eslint Report
 - `npx eslint . --fix`: To fix some JS errors if found
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
